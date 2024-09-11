@@ -9,10 +9,10 @@ function PostForm({ post }) {
   const { register, handleSubmit, watch, setValue, control, getValues } =
     useForm({
       defaultValues: {
-        title: post?.title || "",
-        slug: post?.$id || "",
-        content: post?.content || "",
-        status: post?.status || "active",
+        title: post ? post.title : "",
+        slug: post ? post.$id : "",
+        content: post ? post.content : "",
+        status: post ? post.status : "active",
       },
     });
   const navigate = useNavigate();
@@ -95,12 +95,12 @@ function PostForm({ post }) {
             });
           }}
         />
-        {/* <RTE
+        <RTE
           label="Content :"
           name="content"
           control={control}
           defaultValue={getValues("content")}
-        /> */}
+        />
       </div>
       <div className="w-1/3 px-2">
         <Input
