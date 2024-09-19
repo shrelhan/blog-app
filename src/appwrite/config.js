@@ -15,7 +15,6 @@ export class DatabaseService {
   }
 
   async createPost({ title, slug, content, featuredImage, status, userId }) {
-    // eslint-disable-next-line no-useless-catch
     try {
       return await this.databases.createDocument(
         config.appwriteDatabaseId,
@@ -30,12 +29,11 @@ export class DatabaseService {
         }
       );
     } catch (error) {
-      throw error;
+      console.log(error);
     }
   }
 
   async updatePost(slug, { title, content, featuredImage, status }) {
-    // eslint-disable-next-line no-useless-catch
     try {
       return await this.databases.updateDocument(
         config.appwriteDatabaseId,
@@ -49,12 +47,11 @@ export class DatabaseService {
         }
       );
     } catch (error) {
-      throw error;
+      console.log(error);
     }
   }
 
   async deletePost(slug) {
-    // eslint-disable-next-line no-useless-catch
     try {
       await this.databases.deleteDocument(
         config.appwriteDatabaseId,
@@ -63,12 +60,11 @@ export class DatabaseService {
       );
       return true;
     } catch (error) {
-      throw error;
+      console.log(error);
     }
   }
 
   async getPost(slug) {
-    // eslint-disable-next-line no-useless-catch
     try {
       return await this.databases.getDocument(
         config.appwriteDatabaseId,
@@ -76,12 +72,11 @@ export class DatabaseService {
         slug
       );
     } catch (error) {
-      throw error;
+      console.log(error);
     }
   }
 
   async getAllPost(queries = [Query.equal("status", "active")]) {
-    // eslint-disable-next-line no-useless-catch
     try {
       return await this.databases.listDocuments(
         config.appwriteDatabaseId,
@@ -89,13 +84,12 @@ export class DatabaseService {
         queries
       );
     } catch (error) {
-      throw error;
+      console.log(error);
     }
   }
 
   //file services
   async uploadFile(file) {
-    // eslint-disable-next-line no-useless-catch
     try {
       return await this.bucket.createFile(
         config.appwriteBucketId,
@@ -103,17 +97,16 @@ export class DatabaseService {
         file
       );
     } catch (error) {
-      throw error;
+      console.log(error);
     }
   }
 
   async deleteFile(fileID) {
-    // eslint-disable-next-line no-useless-catch
     try {
       await this.bucket.deleteFile(config.appwriteBucketId, fileID);
       return true;
     } catch (error) {
-      throw error;
+      console.log(error);
     }
   }
 

@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 /* :root {
-  color: rgba(255, 255, 255, 0.87);
+  color: rgba(5, 5, 5, 0.87);
   background-color: #242424;
-}
+} */
 
-body {
+/* body {
   margin: 0;
   display: flex;
   place-items: center;
